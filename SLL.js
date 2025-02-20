@@ -111,7 +111,7 @@ class SLL {
       return false
     }
 
-    if (this.head === value) {
+    if (this.head.data === value) {
       this.removeHead()
       return true
     }
@@ -146,6 +146,19 @@ class SLL {
     for (let val of values) {
       this.insertAtBack(val)
     }
+  }
+  
+  // Count all instances
+  countInstances() {
+    const counts = {}
+    let runner = this.head
+  
+    while (runner !== null) {
+      counts[runner.data] = (counts[runner.data] || 0) + 1
+      runner = runner.next
+    }
+  
+    return counts
   }
 }
 
